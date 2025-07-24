@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏡 宜蘭縣不動產契約實務講義</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'PingFang TC', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            color: #7f8c8d;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-tab {
+            padding: 15px 30px;
+            margin: 0 10px;
+            border: none;
+            background: transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            color: #7f8c8d;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .nav-tab:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 2em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 15px;
+        }
+
+        .subsection {
+            margin-bottom: 40px;
+            padding: 25px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+        }
+
+        .subsection h3 {
+            font-size: 1.5em;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .subsection h3::before {
+            content: "🔺";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .subsection h4 {
+            font-size: 1.3em;
+            color: #34495e;
+            margin: 20px 0 15px 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .subsection h4::before {
+            content: "✅";
+            margin-right: 10px;
+            font-size: 1.1em;
+        }
+
+        .problem-list, .suggestion-list {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .problem-list li, .suggestion-list li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            border-left: 4px solid #e74c3c;
+            position: relative;
+        }
+
+        .suggestion-list li {
+            border-left-color: #27ae60;
+        }
+
+        .problem-list li::before, .suggestion-list li::before {
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: white;
+            padding: 5px;
+            border-radius: 50%;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .problem-list li::before {
+            content: "⚠️";
+        }
+
+        .suggestion-list li::before {
+            content: "💡";
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ffeaa7, #fab1a0);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 5px solid #fdcb6e;
+        }
+
+        .highlight-box h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-top: 4px solid #667eea;
+        }
+
+        .card h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            margin-top: 30px;
+        }
+
+        .footer p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-tab {
+                margin: 5px 0;
+            }
+            
+            .content-section {
+                padding: 20px;
+            }
+            
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏡 宜蘭縣不動產契約實務講義</h1>
+            <p>成屋預售屋契約與住宅租賃契約重點整理</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('presale')">🏠 成屋預售屋契約</button>
+            <button class="nav-tab" onclick="showSection('rental')">🏢 住宅租賃契約</button>
+            <button class="nav-tab" onclick="showSection('summary')">📋 重點總結</button>
+        </div>
+
+        <!-- 成屋預售屋契約內容 -->
+        <div id="presale" class="content-section active">
+            <h2 class="section-title">🏠 成屋與預售屋契約重點整理</h2>
+            
+            <div class="subsection">
+                <h3>一、常見錯誤樣態與問題類型</h3>
+                
+                <h4>1. 契約總價與面積不一致</h4>
+                <ul class="problem-list">
+                    <li><strong>問題：</strong>廣告標示的總價與契約書總價不符，或未揭露建物面積詳細組成（主建物、附屬、共用）。</li>
+                    <li><strong>風險：</strong>買方誤解實際負擔與取得面積。</li>
+                </ul>
+
+                <h4>2. 不實廣告與資訊揭露不全</h4>
+                <ul class="problem-list">
+                    <li><strong>問題：</strong>廣告標示與實際建案差異大，包含坪數、建材、配備、交屋日期等。</li>
+                    <li><strong>建議：</strong>消費者可拍照存證廣告，保全證據，主張消保法第22條「廣告視為契約內容」。</li>
+                </ul>
+
+                <h4>3. 履約保證未落實</h4>
+                <ul class="problem-list">
+                    <li><strong>問題：</strong>預售屋契約未依規定提供履約擔保（如銀行信託、保證），或格式錯誤。</li>
+                    <li><strong>風險：</strong>無法保障買方權益，一旦建商倒閉風險極高。</li>
+                </ul>
+
+                <h4>4. 貸款不足風險未揭示</h4>
+                <ul class="problem-list">
+                    <li><strong>問題：</strong>契約未明示貸款成數風險，或未載明如貸款不足時的處理方式。</li>
+                    <li><strong>建議：</strong>應簽署「貸款成數風險告知書」，保障雙方權益。</li>
+                </ul>
+
+                <h4>5. 交屋期限與違約金設計不對等</h4>
+                <ul class="problem-list">
+                    <li><strong>問題：</strong>買方延遲付款有違約金，建商遲延交屋卻未設罰。</li>
+                    <li><strong>建議：</strong>應雙向設計違約金條款，並明定合理交屋期限。</li>
+                </ul>
+
+                <h4>6. 保固期限與保固內容模糊</h4>
+                <ul class="problem-list">
+                    <li><strong>問題：</strong>契約中未清楚載明「房屋保固期間」、「保固範圍」、「檢修方式」。</li>
+                    <li><strong>建議：</strong>依《住宅法》應有保固一年（一般設備）至十五年（結構）不等。</li>
+                </ul>
+
+                <h4>7. 管理費計算與收費時間不明</h4>
+                <ul class="problem-list">
+                    <li><strong>問題：</strong>契約未寫清楚何時開始收管理費、按何基準計算。</li>
+                    <li><strong>建議：</strong>應載明交屋日起算或實際入住日起算，避免糾紛。</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>二、實務建議與消費者自保方法</h3>
+                
+                <div class="grid-container">
+                    <div class="card">
+                        <h4>✅ 建議一：逐條比對「定型化契約範本」</h4>
+                        <p>內政部提供定型化契約版本（最新修訂版），可作為對照範本，辨識建商是否有不當條款。</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>✅ 建議二：保留一切廣告資料與溝通記錄</h4>
+                        <p>含建案簡章、LINE 對話、電話錄音、樣品屋拍攝等，有助於後續爭議處理。</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>✅ 建議三：要求建商提供必要文件</h4>
+                        <p>「建築執照」、「使用執照」、「平面圖」、「買賣契約草稿」，契約草稿可先送交專業律師或消保官審閱。</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>✅ 建議四：確認履約保證機制</h4>
+                        <p>包含是否為合法機構辦理信託、保證金比例是否足額等，確保具法律效力。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 住宅租賃契約內容 -->
+        <div id="rental" class="content-section">
+            <h2 class="section-title">🏢 住宅租賃契約實務重點整理</h2>
+            
+            <div class="subsection">
+                <h3>一、住宅租賃市場現況與修法背景</h3>
+                <div class="highlight-box">
+                    <h4>📊 市場現況</h4>
+                    <p>根據調查，租賃糾紛以「電費計價」、「押金返還」、「修繕責任」、「不實資訊」為主要爭議點。</p>
+                    <p><strong>重要修法：</strong>住宅租賃定型化契約已於112年11月修正，114年1月1日正式實施，全面提升租屋保障與資訊透明。</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>二、住宅租賃契約修正重點（2024修法）</h3>
+                
+                <div class="grid-container">
+                    <div class="card">
+                        <h4>🔌 1. 電費計價新制</h4>
+                        <ul class="suggestion-list">
+                            <li><strong>新增條款：</strong>出租人應揭露電費計算方式（實際電費或抄表單價）。</li>
+                            <li><strong>禁止情形：</strong>不得「超額收電費」，否則可能構成詐欺。</li>
+                            <li><strong>建議：</strong>明訂「按台電單價計收」或「定額制」，避免爭議。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>🏦 2. 押金返還明確化</h4>
+                        <ul class="suggestion-list">
+                            <li><strong>新增條款：</strong>承租人於契約終止時如無欠費、無損壞，應全額返還押金。</li>
+                            <li><strong>時間規定：</strong>建議訂明「幾日內返還」，常見為7-30日內。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>🧰 3. 修繕責任合理劃分</h4>
+                        <ul class="suggestion-list">
+                            <li><strong>結構性問題：</strong>由出租人負責（如漏水、門窗損壞）。</li>
+                            <li><strong>使用不當：</strong>由承租人負責（如玻璃破裂、人為損壞）。</li>
+                            <li><strong>建議：</strong>拍照存證、雙方列舉列入附件，避免事後爭議。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>📝 4. 契約中應揭露項目</h4>
+                        <ul class="suggestion-list">
+                            <li>建物基本資料（如用途、樓層、面積）</li>
+                            <li>管理費與水電費計價方式</li>
+                            <li>設備項目與交付狀況（建議附照片）</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h4>🚫 5. 禁止條款設計</h4>
+                <div class="highlight-box">
+                    <p><strong>不得約定：</strong></p>
+                    <ul class="problem-list">
+                        <li>出租人隨意進入住宅</li>
+                        <li>限制承租人交友、訪客</li>
+                        <li>未經法院不得單方終止契約</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>三、實務注意事項與風險防範</h3>
+                
+                <h4>✅ 租屋雙方應做的準備：</h4>
+                <ul class="suggestion-list">
+                    <li><strong>簽署政府版契約：</strong>可至內政部不動產資訊平台下載。</li>
+                    <li><strong>設備交接拍照存證：</strong>避免爭議。</li>
+                    <li><strong>月繳費收據／轉帳證明：</strong>作為付款紀錄。</li>
+                    <li><strong>不得口頭約定重大事項：</strong>一律書面化（如可否養寵物、轉租）。</li>
+                </ul>
+
+                <h4>⚠️ 常見糾紛案例：</h4>
+                <ul class="problem-list">
+                    <li>出租人扣押金未說明依據</li>
+                    <li>自行加價電費每度5-10元</li>
+                    <li>結束租約後不退押金、或以設備損壞為由扣款</li>
+                </ul>
+            </div>
+
+            <div class="subsection">
+                <h3>四、法律依據與協助資源</h3>
+                <div class="highlight-box">
+                    <p><strong>法律依據：</strong>《住宅法》第99條、《定型化契約條款審閱準則》</p>
+                    <p><strong>協助資源：</strong>可洽消保官、法扶基金會、地政事務所協助審閱契約</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 重點總結 -->
+        <div id="summary" class="content-section">
+            <h2 class="section-title">📋 重點總結與實務提醒</h2>
+            
+            <div class="subsection">
+                <h3>🎯 核心重點回顧</h3>
+                <div class="grid-container">
+                    <div class="card">
+                        <h4>🏠 成屋預售屋契約</h4>
+                        <ul class="suggestion-list">
+                            <li>總價與面積必須一致</li>
+                            <li>履約保證機制要落實</li>
+                            <li>保固期限要明確</li>
+                            <li>違約金要雙向設計</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>🏢 住宅租賃契約</h4>
+                        <ul class="suggestion-list">
+                            <li>電費計價要透明</li>
+                            <li>押金返還要明確</li>
+                            <li>修繕責任要劃分</li>
+                            <li>禁止條款要遵守</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>💡 實務操作建議</h3>
+                <div class="highlight-box">
+                    <h4>簽約前必做清單：</h4>
+                    <ol style="padding-left: 20px; line-height: 2;">
+                        <li>下載政府版定型化契約範本</li>
+                        <li>逐條比對建商/房東提供的契約</li>
+                        <li>拍照存證所有廣告資料</li>
+                        <li>要求提供相關證明文件</li>
+                        <li>確認履約保證機制</li>
+                        <li>尋求專業法律諮詢</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>📞 求助管道</h3>
+                <div class="grid-container">
+                    <div class="card">
+                        <h4>🏛️ 政府機關</h4>
+                        <p>消保官、地政事務所、內政部不動產資訊平台</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>⚖️ 法律協助</h4>
+                        <p>法扶基金會、律師公會、消費者保護協會</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h4>📱 線上資源</h4>
+                        <p>內政部不動產資訊平台、各縣市政府網站</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>© 2024 宜蘭縣政府不動產契約實務講義 | 資料來源：宜蘭縣政府</p>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // 隱藏所有內容區塊
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // 移除所有標籤的active狀態
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // 顯示選中的內容區塊
+            document.getElementById(sectionId).classList.add('active');
+            
+            // 設定選中標籤的active狀態
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>
